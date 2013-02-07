@@ -6,7 +6,7 @@ namespace entities;
 class alquileres
 	{
     
-                /**@id
+                /** @id
                  * @Column(name="Cod_Alquiler",type="integer")*/
 		private $cod_alquiler;
                 //RELACION 1-* con cliente

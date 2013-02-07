@@ -5,7 +5,7 @@ namespace entities;
  */
 class peliculas
 	{
-                /**@id
+                /** @id
                  * @Column(name="Num_Pelicula",type="integer")*/
 		private $num_pelicula;
                 /** @Column(name="Titulo",type="string",length=25)*/
@@ -19,7 +19,7 @@ class peliculas
 		private $genero;
                 /** @Column(name="Year",type="integer")*/
                 private $year;
-                /** @Column(name="Year",type="integer")*/
+                /** @Column(name="Stock",type="integer")*/
                 private $stock;
 		
 		

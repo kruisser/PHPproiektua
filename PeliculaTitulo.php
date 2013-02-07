@@ -1,15 +1,17 @@
 <?php
-include_once('lib/orm/EntityManagerFactory.php');
+error_reporting(0);
+include_once('lib/orm/entitymanagerfactory.php');
 include_once('Vista.php');
-$em=  EntityManagerFactory::createEntityManager();
+$em=EntityManagerFactory::createEntityManager();
 $v=new vista();
-$i=0;
-$j=0;
 $v->li("PeliculaTitulo.php", "Titulo");
 $v->li("PeliculaGenro.php", "Genero");
+$i=$em->getRepository('entities\peliculas')->findAll();
 $v->inicioFormulario("titulo", "#");
+
 $v->inicioSelect("Titulo");
-$i=$em->getRepository('entities\Peliculas')->findAll();
+
+
 for($j=0;$j<count($i);$j++){
     $x=$i[$j];
     $v->option($x->getTitulo());
@@ -20,6 +22,6 @@ $v->input("Año", "number", "year");
 $v->input("Género", "text", "genero");
 $v->input("Stock", "number", "stock");
 $v->finFormulario();
-//$v->boton("alquilar", "Alquilar", $onclick, $action);
+$v->boton("alquilar", "Alquilar", $onclick, $action);
 ?>
 

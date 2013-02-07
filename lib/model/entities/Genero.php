@@ -5,7 +5,7 @@ namespace entities;
  */
 class genero
 	{
-        /**@id
+        /** @id
         * @Column(name="Num_Cliente",type="integer")*/
         Private $tipo;
         

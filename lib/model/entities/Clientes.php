@@ -5,9 +5,9 @@ namespace entities;
  */
 class clientes
 	{
-                /**@id
+                /** @id
                  * @Column(name="Num_Cliente",type="integer")*/
-		private $Num_Cliente;
+		private $numcliente;
                 /** @Column(name="Nombre",type="string",length=25)*/
 		private $nombre;
                 /** @Column(name="Apellido",type="string",length=25)*/
