@@ -4,14 +4,10 @@ include_once('lib/orm/entitymanagerfactory.php');
 include_once('Vista.php');
 $em=EntityManagerFactory::createEntityManager();
 $v=new vista();
-$v->li("PeliculaTitulo.php", "Titulo");
-$v->li("PeliculaGenro.php", "Genero");
+
 $i=$em->getRepository('entities\peliculas')->findAll();
 $v->inicioFormulario("titulo", "#");
-
 $v->inicioSelect("Titulo");
-
-
 for($j=0;$j<count($i);$j++){
     $x=$i[$j];
     $v->option($x->getTitulo());
@@ -21,7 +17,10 @@ $v->input("Director", "text", "director");
 $v->input("Año", "number", "year");
 $v->input("Género", "text", "genero");
 $v->input("Stock", "number", "stock");
+$v->boton("Alquilar");
 $v->finFormulario();
-$v->boton("alquilar", "Alquilar", $onclick, $action);
+/*if(isset($_POST)){
+   $a1=new entities\alquileres($ccli, $cpeli);
+}*/
 ?>
 

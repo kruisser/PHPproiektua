@@ -6,6 +6,7 @@ namespace entities;
 class clientes
 	{
                 /** @id
+                 * @ GeneratedValue
                  * @Column(name="Num_Cliente",type="integer")*/
 		private $numcliente;
                 /** @Column(name="Nombre",type="string",length=25)*/
