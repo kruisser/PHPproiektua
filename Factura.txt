@@ -1,0 +1,10 @@
+*******************
+FilmStore
+*******************
+DNI cliente: 72318462E
+Nombre: Edorta
+Apellido: Estebanez
+Direccion: Inigo Lopez de Haro
+Telefono: 645725704
+Pelicula: Dersu Uzala
+*******************

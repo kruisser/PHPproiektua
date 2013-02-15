@@ -6,84 +6,69 @@ namespace entities;
 class peliculas
 	{
                 /** @id
-                 * @Column(name="Num_Pelicula",type="integer")*/
+                 * @GeneratedValue(strategy="AUTO")
+                 * @Column(name="num_pelicula",type="integer")*/
 		private $num_pelicula;
-                /** @Column(name="Titulo",type="string",length=25)*/
+                /** @Column(name="titulo",type="string",length=50)*/
 		private $titulo;
-                /** @Column(name="Director",type="string",length=25)*/
+                /** @Column(name="director",type="string",length=50)*/
                 private $director;
-                //RELACION 1-* con cliente
-                /** @ManyToOne(targetEntity="genero",inversedBy="peliculas")
-                 * @JoinColumn(name="Genero",referencedColumnName="Tipo")
-                 */                
-		private $genero;
-                /** @Column(name="Year",type="integer")*/
+                /** @Column(name="year",type="integer")*/
                 private $year;
-                /** @Column(name="Stock",type="integer")*/
+                /** @Column(name="genero",type="string",length=20)*/
+                private $genero;
+                /** @Column(name="stock",type="integer")*/
                 private $stock;
+		/** @OneToMany (targetEntity="ventas",mappedBy="peliculas")
+                * @JoinColumn(name="cod_pelicula",referencedColumnName="num_pelicula")
+                */
+                private $venta;
 		
-		
-		public function __construct ($nup,$ti,$di,$ge,$ye,$sto)
+		public function __construct ($ti,$di,$ye,$ge,$sto)
 		{
-			$this->num_pelicula=$nup;
 			$this->titulo=$ti;
                         $this->director=$di;
-                        $this->genero=$ge;
                         $this->year=$ye;
-			$this->stock=$sto;			                        
+                        $this->genero=$ge;
+			$this->stock=$sto;
+                        $venta=new \Doctrine\Common\Collections\ArrayCollection();
 		}
                 
 		public function getNumPelicula()
 		{
 			return $this->num_pelicula;
 		}
-                function setNumPelicula($nup){
-                    $this->num_pelicula=$nup;
-                }
-                
+                                
 		public function getTitulo()
 		{
 			return $this->titulo;
 		}                
-                function setTitulo($ti){
-                    $this->titulo=$ti;
-                }
-                
+                                
                 public function getDirector()
 		{
 			return $this->director;
-		}                
-                function setDirector($ti){
-                    $this->director=$di;
-                }
-                
-		public function getGenero()
-		{
-			return $this->genero;
-		}                
-                function setGenero($ge){
-                    $this->genero=$ge;
-                }
-                
+		}                    
+		      
                 public function getYear()
 		{
 			return $this->year;
 		}                
-                function setGYear($ye){
-                    $this->year=$ye;
-                }
-                
+                public function getGenero()
+		{
+			return $this->genero;
+		}                
                 public function getStock()
 		{
 			return $this->stock;
 		}                
-                function setStock($sto){
-                    $this->stock=$sto;
-                }
                 
-                public function restarexistencias($res)
+                public function anadirVenta($ventas)
                 {
-                    $this->existenciasRegalo=$this->existenciasRegalo-$res;
+                    $this->venta[]=$ventas;
+                }
+                public function restarStock()
+                {
+                    $this->stock=$this->stock-1;
                 }            
 	}
 ?>

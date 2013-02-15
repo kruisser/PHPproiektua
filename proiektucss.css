@@ -1,4 +1,26 @@
-#menu { 
-    
+body{
+   background-color:lightblue;
+}
+h1{
+    color: white;
+    font-size: 4em;
+    text-align: center;
+    margin:0px;
+}
+h2{
+    text-align: center;
+}
+div{
+    background-color: white;
+    border-color: gold;
+    border-radius: 10px 10px 10px 10px;
+    border-style: ridge;    
+    padding: 25px;
+    width: 240px;
+    margin: auto;
+}
+li{
+    display: block;
+    text-decoration: none;
 }
 
